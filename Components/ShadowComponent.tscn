@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxiwnsbq4cruq"]
+
+[ext_resource type="Texture2D" uid="uid://cgt2vtu3yu78j" path="res://Resources/Textures/Shadow/Oval.png" id="2_aurlk"]
+
+[node name="ShadowComponent" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.196078)
+texture = ExtResource("2_aurlk")

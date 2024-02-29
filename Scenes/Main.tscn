@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6p1m0uaqmdke"]
+
+[ext_resource type="PackedScene" uid="uid://c3m43sfnfqrb3" path="res://Scenes/Place/Place.tscn" id="1_nnmh0"]
+[ext_resource type="PackedScene" uid="uid://crf784jx4l8nf" path="res://Scenes/GUI/GUI.tscn" id="2_kh73h"]
+
+[node name="Main" type="Node"]
+
+[node name="Place" parent="." instance=ExtResource("1_nnmh0")]
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="GUILayer" instance=ExtResource("2_kh73h")]

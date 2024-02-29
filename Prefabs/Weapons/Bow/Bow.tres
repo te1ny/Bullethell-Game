@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://b3nykchx32lg2"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/WeaponResource.cs" id="1_0df0a"]
+
+[resource]
+script = ExtResource("1_0df0a")
+ManualControl = true
+Autofire = false
+attackType = 1
+AmmoCount = 10
+ReloadTime = 0.5
+AttackDelay = 0.05
+LaunchSpeed = 500.0

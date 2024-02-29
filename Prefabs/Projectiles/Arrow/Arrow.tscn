@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqg1pnvxj2ku2"]
+
+[ext_resource type="Script" path="res://Prefabs/Projectiles/Arrow/Arrow.cs" id="1_lpm23"]
+[ext_resource type="PackedScene" uid="uid://cv0iy2niulgwh" path="res://Components/AttackComponent.tscn" id="2_onyhk"]
+[ext_resource type="PackedScene" uid="uid://c7h2872phlqkg" path="res://Components/MovementComponent.tscn" id="2_woq2w"]
+[ext_resource type="Texture2D" uid="uid://cn3vklkoc2c0c" path="res://Resources/Textures/Projectiles/Arrow.png" id="4_mthy0"]
+[ext_resource type="Shader" path="res://Shaders/ColorRemover.gdshader" id="5_gx0kj"]
+[ext_resource type="SpriteFrames" uid="uid://xa5s0g35dnpc" path="res://Prefabs/Projectiles/Arrow/EffectsSpriteFrames.tres" id="6_xf248"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wnvs"]
+size = Vector2(15, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6r07"]
+shader = ExtResource("5_gx0kj")
+shader_parameter/color1 = Color(0.133333, 0.12549, 0.203922, 1)
+shader_parameter/precision = 0.05
+
+[sub_resource type="Gradient" id="Gradient_gdghb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.478431, 0.478431, 0.478431, 0, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnujl"]
+gradient = SubResource("Gradient_gdghb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource("1_lpm23")
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_woq2w")]
+
+[node name="AttackComponent" parent="." instance=ExtResource("2_onyhk")]
+collision_layer = 8
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+shape = SubResource("RectangleShape2D_0wnvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_mthy0")
+
+[node name="Effects" type="AnimatedSprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_v6r07")
+position = Vector2(5.33333, -0.666667)
+scale = Vector2(0.155, 0.155)
+sprite_frames = ExtResource("6_xf248")
+animation = &"Poisoning"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(5, 0)
+scale = Vector2(0.390625, 0.390625)
+color = Color(0.545098, 0.792157, 0.223529, 1)
+texture = SubResource("GradientTexture2D_cnujl")

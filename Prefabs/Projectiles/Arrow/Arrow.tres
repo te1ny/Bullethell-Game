@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AttackResource" load_steps=2 format=3 uid="uid://cdq712mn1atft"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/AttackResource.cs" id="1_ie4n3"]
+
+[resource]
+script = ExtResource("1_ie4n3")
+damageType = 0
+damage = 1

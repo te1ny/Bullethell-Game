@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CostResource" load_steps=2 format=3 uid="uid://do0h1ytpax4al"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/CostResource.cs" id="1_w7e3x"]
+
+[resource]
+script = ExtResource("1_w7e3x")
+Money = 3
+Experience = 5

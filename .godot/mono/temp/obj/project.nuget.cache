@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "EJzKciqAFbmp3tSCBtwLk0LRlzW44J1EPwylrbFZ15D/qdz5LYGd3p5S/jeX5MnUauDZTXxl7OB4UDG6ub8AqQ==",
+  "success": true,
+  "projectFilePath": "D:\\Work\\Godot Mono\\Test\\Prototype.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\teiny\\.nuget\\packages\\firebelley.godotutilities\\4.1.2\\firebelley.godotutilities.4.1.2.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\firebelley.godotutilities.sourcegenerators\\4.1.2\\firebelley.godotutilities.sourcegenerators.4.1.2.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.5.0\\microsoft.codeanalysis.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\system.reflection.metadata\\6.0.1\\system.reflection.metadata.6.0.1.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\teiny\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

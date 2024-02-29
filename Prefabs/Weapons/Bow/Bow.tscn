@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1mktra5mpg83"]
+
+[ext_resource type="Script" path="res://Prefabs/Weapons/Bow/Bow.cs" id="1_choyj"]
+[ext_resource type="PackedScene" uid="uid://dqg1pnvxj2ku2" path="res://Prefabs/Projectiles/Arrow/Arrow.tscn" id="2_62k8s"]
+[ext_resource type="Resource" uid="uid://cdq712mn1atft" path="res://Prefabs/Projectiles/Arrow/Arrow.tres" id="3_wolh4"]
+[ext_resource type="Resource" uid="uid://b3nykchx32lg2" path="res://Prefabs/Weapons/Bow/Bow.tres" id="4_6g2q8"]
+[ext_resource type="Texture2D" uid="uid://cg68gcyq3rhbk" path="res://Resources/Textures/Weapons/Bow.png" id="5_syi6r"]
+
+[node name="Bow" type="Node2D"]
+script = ExtResource("1_choyj")
+projectile = ExtResource("2_62k8s")
+attackResource = ExtResource("3_wolh4")
+weaponResource = ExtResource("4_6g2q8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_syi6r")
+vframes = 6

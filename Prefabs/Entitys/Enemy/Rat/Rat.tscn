@@ -1,0 +1,86 @@
+[gd_scene load_steps=17 format=3 uid="uid://rs3sogmex5g7"]
+
+[ext_resource type="Script" path="res://Prefabs/Entitys/Enemy/Rat/Rat.cs" id="1_h01xd"]
+[ext_resource type="PackedScene" uid="uid://b0qwbbhnea4yj" path="res://Managers/EnemyManager.tscn" id="1_p3oq2"]
+[ext_resource type="Resource" uid="uid://nengy6dc0fmb" path="res://Prefabs/Entitys/Enemy/Rat/RatAttackResource.tres" id="2_x6ni3"]
+[ext_resource type="PackedScene" uid="uid://bpr2juygvq8w2" path="res://Components/HealthComponent.tscn" id="3_24342"]
+[ext_resource type="PackedScene" uid="uid://c7h2872phlqkg" path="res://Components/MovementComponent.tscn" id="4_hp770"]
+[ext_resource type="Resource" uid="uid://ce1y58pu3wo7q" path="res://Prefabs/Entitys/Enemy/Rat/RatCostResource.tres" id="4_yadu3"]
+[ext_resource type="PackedScene" uid="uid://d0fks8mk80p2g" path="res://Indicators/DamageIndicator/DamageIndicator.tscn" id="5_u5md1"]
+[ext_resource type="PackedScene" uid="uid://dscrcoh5selfx" path="res://Components/HitboxComponent.tscn" id="6_kta31"]
+[ext_resource type="PackedScene" uid="uid://cv0iy2niulgwh" path="res://Components/AttackComponent.tscn" id="7_avble"]
+[ext_resource type="SpriteFrames" uid="uid://c8110vkumyk7s" path="res://Prefabs/Entitys/Enemy/Rat/RatSpriteFrames.tres" id="10_a5ppn"]
+[ext_resource type="PackedScene" uid="uid://cxiwnsbq4cruq" path="res://Components/ShadowComponent.tscn" id="11_stjvs"]
+[ext_resource type="PackedScene" uid="uid://dbbdfnvgdw8yr" path="res://Components/EffectsComponent.tscn" id="12_lakxb"]
+[ext_resource type="SpriteFrames" uid="uid://bi1ed00o6t6x8" path="res://Prefabs/Effects/BurningSpriteFrames.tres" id="13_i2dxt"]
+[ext_resource type="Texture2D" uid="uid://bg38on2mn10lp" path="res://Resources/Textures/Effects/Ice.png" id="14_om63m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkxrv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68uli"]
+radius = 12.7
+
+[node name="Rat" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_h01xd")
+
+[node name="EnemyManager" parent="." instance=ExtResource("1_p3oq2")]
+attackResource = ExtResource("2_x6ni3")
+costResource = ExtResource("4_yadu3")
+AttackDelay = 0.5
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_24342")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("4_hp770")]
+
+[node name="DamageIndicator" parent="." instance=ExtResource("5_u5md1")]
+position = Vector2(0, -12)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("6_kta31")]
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_hkxrv")
+
+[node name="AttackComponent" parent="." instance=ExtResource("7_avble")]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+shape = SubResource("CircleShape2D_68uli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hkxrv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -12)
+sprite_frames = ExtResource("10_a5ppn")
+animation = &"Stalk"
+frame = 2
+frame_progress = 0.256545
+flip_h = true
+
+[node name="ShadowComponent" parent="." instance=ExtResource("11_stjvs")]
+position = Vector2(0, 4)
+scale = Vector2(0.035, 0.035)
+
+[node name="EffectsComponent" parent="." instance=ExtResource("12_lakxb")]
+
+[node name="AnimatedEffects" type="AnimatedSprite2D" parent="EffectsComponent"]
+visible = false
+modulate = Color(1, 1, 1, 0.858824)
+z_index = 1
+position = Vector2(2, -5)
+scale = Vector2(0.16, 0.16)
+sprite_frames = ExtResource("13_i2dxt")
+autoplay = "default"
+
+[node name="StaticEffect" type="Sprite2D" parent="EffectsComponent"]
+visible = false
+z_index = 2
+scale = Vector2(0.53, 0.53)
+texture = ExtResource("14_om63m")

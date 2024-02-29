@@ -1,0 +1,14 @@
+AnimatedSprite2D
+Sprite2D
+ColorPicker
+Label
+GridContainer
+Button
+CanvasModulate
+PointLight2D
+GPUParticles2D
+VisibleOnScreenNotifier2D
+VisibleOnScreenEnabler2D
+Node2D
+CollisionShape2D
+CharacterBody2D

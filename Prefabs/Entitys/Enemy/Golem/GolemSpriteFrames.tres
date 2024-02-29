@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bbcjwips0586m"]
+
+[ext_resource type="Texture2D" uid="uid://dmf5a4mipfn31" path="res://Resources/Textures/Entitys/Golem/Golem_Run.png" id="1_ulskb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uo0x"]
+atlas = ExtResource("1_ulskb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10rwy"]
+atlas = ExtResource("1_ulskb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0vum"]
+atlas = ExtResource("1_ulskb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buor5"]
+atlas = ExtResource("1_ulskb")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uo0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10rwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0vum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buor5")
+}],
+"loop": true,
+"name": &"Stalk",
+"speed": 8.0
+}]

@@ -1,0 +1,3 @@
+CostResource
+AttackResource
+WeaponResource

@@ -1,0 +1,161 @@
+[gd_scene load_steps=25 format=3 uid="uid://cvyn2n576i1ip"]
+
+[ext_resource type="PackedScene" uid="uid://dscrcoh5selfx" path="res://Components/HitboxComponent.tscn" id="1_06o4c"]
+[ext_resource type="PackedScene" uid="uid://jeml8ruwmev5" path="res://Managers/PlayerManager.tscn" id="1_h1dc5"]
+[ext_resource type="Script" path="res://Prefabs/Entitys/Player/Player.cs" id="1_q0e0c"]
+[ext_resource type="PackedScene" uid="uid://c7h2872phlqkg" path="res://Components/MovementComponent.tscn" id="2_5wv36"]
+[ext_resource type="PackedScene" uid="uid://c1mktra5mpg83" path="res://Prefabs/Weapons/Bow/Bow.tscn" id="2_llv8l"]
+[ext_resource type="PackedScene" uid="uid://bpr2juygvq8w2" path="res://Components/HealthComponent.tscn" id="3_vbk6h"]
+[ext_resource type="PackedScene" uid="uid://d0fks8mk80p2g" path="res://Indicators/DamageIndicator/DamageIndicator.tscn" id="5_hjp2p"]
+[ext_resource type="Texture2D" uid="uid://bktw82nvu6odu" path="res://Resources/Textures/Entitys/Player/Girl-Sheet.png" id="5_rdd4c"]
+[ext_resource type="PackedScene" uid="uid://cxiwnsbq4cruq" path="res://Components/ShadowComponent.tscn" id="9_8syk6"]
+[ext_resource type="PackedScene" uid="uid://dbbdfnvgdw8yr" path="res://Components/EffectsComponent.tscn" id="10_sysqc"]
+[ext_resource type="SpriteFrames" uid="uid://bi1ed00o6t6x8" path="res://Prefabs/Effects/BurningSpriteFrames.tres" id="11_55aap"]
+[ext_resource type="Texture2D" uid="uid://bg38on2mn10lp" path="res://Resources/Textures/Effects/Ice.png" id="12_7a3cq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i13br"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7i14"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssrtm"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgypu"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(240, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhfrp"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(264, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yre6"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(672, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7adqf"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(696, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo7kw"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(720, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb7om"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(744, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7inq"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(768, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2kjt"]
+atlas = ExtResource("5_rdd4c")
+region = Rect2(792, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vj4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7i14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssrtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgypu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhfrp")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yre6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7adqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo7kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb7om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7inq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2kjt")
+}],
+"loop": false,
+"name": &"Run",
+"speed": 8.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
+safe_margin = 1.0
+script = ExtResource("1_q0e0c")
+
+[node name="PlayerManager" parent="." instance=ExtResource("1_h1dc5")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_vbk6h")]
+Immortality = true
+MaxHealth = 100.0
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_5wv36")]
+Speed = 150.0
+
+[node name="DamageIndicator" parent="." instance=ExtResource("5_hjp2p")]
+z_index = 1
+position = Vector2(0, -24)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("1_06o4c")]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_i13br")
+
+[node name="Bow" parent="." instance=ExtResource("2_llv8l")]
+z_index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i13br")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_0vj4f")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="ShadowComponent" parent="." instance=ExtResource("9_8syk6")]
+position = Vector2(0, 12)
+scale = Vector2(0.03, 0.03)
+
+[node name="EffectsComponent" parent="." instance=ExtResource("10_sysqc")]
+IsPlayer = true
+
+[node name="AnimatedEffects" type="AnimatedSprite2D" parent="EffectsComponent"]
+visible = false
+modulate = Color(1, 1, 1, 0.858824)
+z_index = 2
+position = Vector2(3, -3)
+scale = Vector2(0.235, 0.235)
+sprite_frames = ExtResource("11_55aap")
+autoplay = "default"
+
+[node name="StaticEffect" type="Sprite2D" parent="EffectsComponent"]
+visible = false
+z_index = 2
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("12_7a3cq")
