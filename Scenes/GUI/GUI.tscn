@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crf784jx4l8nf"]
 
 [ext_resource type="Script" path="res://Scenes/GUI/GUI.cs" id="1_d6gqt"]
-[ext_resource type="LabelSettings" uid="uid://jmhsh2i2ypt0" path="res://Scenes/GUI/LabelSettings.tres" id="2_djf7y"]
+[ext_resource type="LabelSettings" uid="uid://jmhsh2i2ypt0" path="res://Scenes/GUI/LabelGUI.tres" id="2_djf7y"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -12,124 +12,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d6gqt")
 
-[node name="MoneyLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.015
-anchor_top = 0.009
-anchor_right = 0.102
-anchor_bottom = 0.067
-offset_left = -0.799999
-offset_top = 62.28
-offset_right = 0.160004
-offset_bottom = 71.64
-text = "Money: 0"
-label_settings = ExtResource("2_djf7y")
-
-[node name="ExperienceLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0145833
-anchor_top = 0.133333
-anchor_right = 0.0868333
-anchor_bottom = 0.200148
-offset_right = 0.279999
-offset_bottom = -0.16
-text = "XP: 0
-"
-label_settings = ExtResource("2_djf7y")
-metadata/_edit_use_anchors_ = true
-
-[node name="LevelLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 28.0
-offset_right = 188.0
-offset_bottom = 72.0
-text = "Level: 1"
-label_settings = ExtResource("2_djf7y")
-
 [node name="TimeLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -26.5
-offset_right = 26.5
-offset_bottom = 72.0
+offset_left = -12.0
+offset_right = 12.0
+offset_bottom = 32.0
 grow_horizontal = 2
 text = "0:0"
 label_settings = ExtResource("2_djf7y")
+horizontal_alignment = 1
 
-[node name="DebugEnemiesCountLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -72.0
-offset_right = 40.0
-grow_vertical = 0
-text = "0
-"
-label_settings = ExtResource("2_djf7y")
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_top = 312.0
+offset_right = 1280.0
+offset_bottom = 402.0
+scale = Vector2(0.5, 0.5)
 
-[node name="DebugEffectsLevel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -11.5
-offset_bottom = 11.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Freezing: 0
-Burning: 0
-Poisoning: 0"
-label_settings = ExtResource("2_djf7y")
-horizontal_alignment = 2
-
-[node name="DebugContainer" type="GridContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-offset_top = -104.0
-grow_horizontal = 0
-grow_vertical = 0
-columns = 3
-
-[node name="DebugAddLevelFreezing" type="Button" parent="DebugContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="SkillBar" type="VFlowContainer" parent="AspectRatioContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-text = "+Freezing
-"
-
-[node name="DebugAddLevelBurning" type="Button" parent="DebugContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "+Burning"
-
-[node name="DebugAddLevelPoisoning" type="Button" parent="DebugContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "+Poisoning"
-
-[node name="DebugSubtractLevelFreezing" type="Button" parent="DebugContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "-Freezing"
-
-[node name="DebugSubtractLevelBurning" type="Button" parent="DebugContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "-Burning"
-
-[node name="DebugSubtractLevelPoisoning" type="Button" parent="DebugContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "-Poisoning"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 10
+alignment = 1

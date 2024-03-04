@@ -6,16 +6,16 @@ namespace Game.Resources
     [GlobalClass]
     public partial class EffectsResource : Resource
     {
-        public Dictionary<string, bool> Effects = new Dictionary<string, bool>
+        public Dictionary<int, bool> Effects = new Dictionary<int, bool>
         {
             {
-                "Freezing", false
+                0, false
             },
             {
-                "Burning", false
+                1, false
             },
             {
-                "Poisoning", false
+                2, false
             }
         };
     }

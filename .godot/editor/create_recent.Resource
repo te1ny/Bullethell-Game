@@ -1,3 +1,4 @@
+AtlasTexture
 CostResource
 AttackResource
 WeaponResource

@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://jmhsh2i2ypt0"]
+
+[ext_resource type="FontFile" uid="uid://bcah6uc8pnt6b" path="res://Indicators/FontEightBits.ttf" id="1_bvoj2"]
+
+[resource]
+font = ExtResource("1_bvoj2")
+outline_size = 4
+outline_color = Color(0, 0, 0, 0.435294)
+shadow_color = Color(0, 0, 0, 0.407843)
+shadow_offset = Vector2(-1.21, 3.19)

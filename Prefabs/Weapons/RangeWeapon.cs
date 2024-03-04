@@ -102,23 +102,23 @@ namespace Game.Weapons
             {
                 EffectsResource effectsResource = new EffectsResource();
 
-                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters["Freezing"]["Chance"] && (int)gameManager.SkillParameters["Freezing"]["Level"] > 0)
+                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters[0]["Chance"] && (int)gameManager.SkillParameters[0]["Level"] > 0)
                 {
-                    effectsResource.Effects["Freezing"] = true;
+                    effectsResource.Effects[0] = true;
                 }
-                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters["Burning"]["Chance"] && (int)gameManager.SkillParameters["Burning"]["Level"] > 0)
+                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters[1]["Chance"] && (int)gameManager.SkillParameters[1]["Level"] > 0)
                 {
-                    effectsResource.Effects["Burning"] = true;
+                    effectsResource.Effects[1] = true;
                 }
-                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters["Poisoning"]["Chance"] && (int)gameManager.SkillParameters["Poisoning"]["Level"] > 0)
+                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters[2]["Chance"] && (int)gameManager.SkillParameters[2]["Level"] > 0)
                 {
-                    effectsResource.Effects["Poisoning"] = true;
+                    effectsResource.Effects[2] = true;
                 }
 
-                if (effectsResource.Effects["Freezing"] && effectsResource.Effects["Burning"])
+                if (effectsResource.Effects[0] && effectsResource.Effects[1])
                 {
-                    effectsResource.Effects["Freezing"] = false;
-                    effectsResource.Effects["Burning"] = false;
+                    effectsResource.Effects[0] = false;
+                    effectsResource.Effects[1] = false;
                 }
 
                 Vector2 ShootDirection = (GetGlobalMousePosition() - GlobalPosition).Normalized();

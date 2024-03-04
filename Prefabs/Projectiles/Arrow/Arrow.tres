@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_ie4n3")
 damageType = 0
-damage = 1
+damage = 10

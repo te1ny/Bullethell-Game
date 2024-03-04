@@ -23,7 +23,7 @@ radius = 11.2
 
 [node name="Pebble" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_wmhxv")
 
@@ -43,14 +43,16 @@ position = Vector2(0, -12)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("5_xnst8")]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 0
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_8duyk")
 
 [node name="AttackComponent" parent="." instance=ExtResource("6_4pihc")]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 shape = SubResource("CircleShape2D_idxjs")

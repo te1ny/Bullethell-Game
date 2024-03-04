@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://dund4qmrwiq4t"]
+
+[ext_resource type="Script" path="res://Scenes/PauseGUI/PauseGUI.cs" id="1_2qp82"]
+[ext_resource type="Texture2D" uid="uid://bclmle3n60ww" path="res://Resources/Textures/GUI/kenney_fantasy-ui-borders/Default/Buttons/button10.png" id="1_u7qd2"]
+[ext_resource type="FontFile" uid="uid://bcah6uc8pnt6b" path="res://Indicators/FontEightBits.ttf" id="2_pdm5w"]
+[ext_resource type="Texture2D" uid="uid://b7gs335ese1kx" path="res://Resources/Textures/GUI/kenney_fantasy-ui-borders/Default/Buttons/button10select.png" id="3_1pdcc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4f5p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryu61"]
+texture = ExtResource("1_u7qd2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ol156"]
+texture = ExtResource("3_1pdcc")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48qf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krh5h"]
+
+[node name="PauseGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2qp82")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -40.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(72, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_colors/font_pressed_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_colors/font_hover_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 0.482353)
+theme_override_colors/font_outline_color = Color(0.211765, 0.211765, 0.211765, 0.392157)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_pdm5w")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t4f5p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ryu61")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ol156")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_48qf7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krh5h")
+text = " Play "
+
+[node name="SettingsButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(72, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_colors/font_pressed_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_colors/font_hover_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 0.482353)
+theme_override_colors/font_outline_color = Color(0.211765, 0.211765, 0.211765, 0.392157)
+theme_override_fonts/font = ExtResource("2_pdm5w")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t4f5p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ryu61")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ol156")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_48qf7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krh5h")
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(72, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_colors/font_pressed_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_colors/font_hover_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 0.482353)
+theme_override_colors/font_outline_color = Color(0.211765, 0.211765, 0.211765, 0.392157)
+theme_override_fonts/font = ExtResource("2_pdm5w")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t4f5p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ryu61")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ol156")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_48qf7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krh5h")
+text = "Exit"

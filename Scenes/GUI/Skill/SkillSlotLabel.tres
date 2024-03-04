@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d1b6se1bcgm5j"]
+
+[ext_resource type="FontFile" uid="uid://bcah6uc8pnt6b" path="res://Indicators/FontEightBits.ttf" id="1_mnpmw"]
+
+[resource]
+font = ExtResource("1_mnpmw")
+font_size = 23
+outline_size = 4
+outline_color = Color(0, 0, 0, 0.466667)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.466667)
+shadow_offset = Vector2(2.5, 1)

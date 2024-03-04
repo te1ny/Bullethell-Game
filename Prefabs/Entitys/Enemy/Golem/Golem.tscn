@@ -23,7 +23,7 @@ radius = 18.6
 
 [node name="Golem" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_00eoq")
 
@@ -33,7 +33,7 @@ costResource = ExtResource("4_3mtoc")
 AttackDelay = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_0oc67")]
-MaxHealth = 20.0
+MaxHealth = 1000.0
 
 [node name="MovementComponent" parent="." instance=ExtResource("4_kk4y6")]
 Speed = 50.0
@@ -43,14 +43,16 @@ position = Vector2(0, -12)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("6_bimvh")]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 0
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_8n8f8")
 
 [node name="AttackComponent" parent="." instance=ExtResource("7_l2cuy")]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 shape = SubResource("CircleShape2D_teb1d")

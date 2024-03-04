@@ -24,7 +24,7 @@ radius = 10.198
 [node name="Bat" type="CharacterBody2D"]
 scale = Vector2(0.75, 0.75)
 collision_layer = 4
-collision_mask = 7
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_t6jpt")
 
@@ -41,17 +41,20 @@ Speed = 75.0
 
 [node name="DamageIndicator" parent="." instance=ExtResource("2_h23nt")]
 position = Vector2(0, -12)
+scale = Vector2(1.2, 1.2)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("4_qvfdu")]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 0
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_a18c8")
 
 [node name="AttackComponent" parent="." instance=ExtResource("5_g011d")]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 shape = SubResource("CircleShape2D_3msij")

@@ -71,21 +71,21 @@ namespace Game.Components
 		{
             if (!IsPlayer)
             {
-                if (effectsResource.Effects["Freezing"])
+                if (effectsResource.Effects[0])
                 {
-                    freezingTicks = Godot.Mathf.Max((int)gameManager.SkillParameters["Freezing"]["Ticks"], freezingTicks);
+                    freezingTicks = Godot.Mathf.Max((int)gameManager.SkillParameters[0]["Ticks"], freezingTicks);
                     enemyManager.SetPhysicsProcess(false);
                     animatedSprite2D.Stop();
                     movementComponent.Speed = 0f;
                 }
-                if (effectsResource.Effects["Burning"])
+                if (effectsResource.Effects[1])
                 {
-                    burningTicks = Godot.Mathf.Max((int)gameManager.SkillParameters["Burning"]["Ticks"], burningTicks);
+                    burningTicks = Godot.Mathf.Max((int)gameManager.SkillParameters[1]["Ticks"], burningTicks);
                 }
-                if (effectsResource.Effects["Poisoning"])
+                if (effectsResource.Effects[2])
                 {
-                    poisoningTicks = Godot.Mathf.Max((int)gameManager.SkillParameters["Poisoning"]["Ticks"], poisoningTicks);
-                    movementComponent.Speed *= 1f - ((int)gameManager.SkillParameters["Poisoning"]["Slowing"] / 100f);
+                    poisoningTicks = Godot.Mathf.Max((int)gameManager.SkillParameters[2]["Ticks"], poisoningTicks);
+                    movementComponent.Speed *= 1f - ((int)gameManager.SkillParameters[2]["Slowing"] / 100f);
                 }
 
                 if (freezingTicks > 0 && burningTicks > 0)
@@ -94,9 +94,9 @@ namespace Game.Components
                     burningTicks = 0;
                 }
 
-                freezingTimer = (float)gameManager.SkillParameters["Freezing"]["TickDuration"];
-                burningTimer = (float)gameManager.SkillParameters["Burning"]["TickDuration"];
-                poisoningTimer = (float)gameManager.SkillParameters["Poisoning"]["TickDuration"];
+                freezingTimer = (float)gameManager.SkillParameters[0]["TickDuration"];
+                burningTimer = (float)gameManager.SkillParameters[1]["TickDuration"];
+                poisoningTimer = (float)gameManager.SkillParameters[2]["TickDuration"];
 
                 SetPhysicsProcess(true);
             }
@@ -163,20 +163,19 @@ namespace Game.Components
             if (freezingTimer == 0f && freezingTicks > 0)
             {
                 freezingTicks -= 1;
-                freezingTimer = (float)gameManager.SkillParameters["Freezing"]["TickDuration"];
+                freezingTimer = (float)gameManager.SkillParameters[0]["TickDuration"];
             }
             if (burningTimer == 0f && burningTicks > 0)
             {
                 burningTicks -= 1;
-                burningTimer = (float)gameManager.SkillParameters["Burning"]["TickDuration"];
-                healthComponent.Damage((float)gameManager.SkillParameters["Burning"]["Damage"]);
+                burningTimer = (float)gameManager.SkillParameters[1]["TickDuration"];
+                healthComponent.Damage((float)gameManager.SkillParameters[1]["Damage"]);
             }
             if (poisoningTimer == 0f && poisoningTicks > 0)
             {
                 poisoningTicks -= 1;
-                poisoningTimer = (float)gameManager.SkillParameters["Poisoning"]["TickDuration"];
-                GD.Print("Poison Ticks - ", poisoningTicks);
-                healthComponent.Damage((float)gameManager.SkillParameters["Poisoning"]["Damage"]);
+                poisoningTimer = (float)gameManager.SkillParameters[2]["TickDuration"];
+                healthComponent.Damage((float)gameManager.SkillParameters[2]["Damage"]);
             }
         }
     }
