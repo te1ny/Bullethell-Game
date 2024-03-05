@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dund4qmrwiq4t"]
+[gd_scene load_steps=12 format=3 uid="uid://dund4qmrwiq4t"]
 
 [ext_resource type="Script" path="res://Scenes/PauseGUI/PauseGUI.cs" id="1_2qp82"]
 [ext_resource type="Texture2D" uid="uid://bclmle3n60ww" path="res://Resources/Textures/GUI/kenney_fantasy-ui-borders/Default/Buttons/button10.png" id="1_u7qd2"]
 [ext_resource type="FontFile" uid="uid://bcah6uc8pnt6b" path="res://Indicators/FontEightBits.ttf" id="2_pdm5w"]
 [ext_resource type="Texture2D" uid="uid://b7gs335ese1kx" path="res://Resources/Textures/GUI/kenney_fantasy-ui-borders/Default/Buttons/button10select.png" id="3_1pdcc"]
+[ext_resource type="FontFile" uid="uid://8r7d1rv32s" path="res://Scenes/PauseGUI/ConsolaMono-Bold.ttf" id="5_bxvsi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4f5p"]
 
@@ -16,6 +17,11 @@ texture = ExtResource("3_1pdcc")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48qf7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krh5h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4085s"]
+line_spacing = 0.0
+font = ExtResource("5_bxvsi")
+font_size = 8
 
 [node name="PauseGUI" type="Control"]
 layout_mode = 3
@@ -102,3 +108,15 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ol156")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_48qf7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_krh5h")
 text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Управление:
+WASD - Ходьба
+LCM - Стрельба
+RCM - Автострельба
+I/O/P - Повысить уровень умений
+J/K/L - Понизить уровень умений"
+label_settings = SubResource("LabelSettings_4085s")

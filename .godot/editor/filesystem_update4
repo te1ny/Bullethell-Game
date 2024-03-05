@@ -1,4 +1,4 @@
-res://Scenes/GUI/Skill/SkillSlot.tscn
+res://Scenes/PauseGUI/PauseGUI.tscn
 res://Shaders/ColorRemover.gdshader
 res://Prefabs/Projectiles/Arrow/EffectsSpriteFrames.tres
 res://Prefabs/Weapons/Bow/Bow.tres
@@ -12,11 +12,9 @@ res://Indicators/DamageIndicator/HitShader.tres
 res://Scenes/Main.tscn
 res://Scenes/Place/Place.tscn
 res://Scenes/GUI/GUI.tscn
-res://Scenes/PauseGUI/PauseGUI.tscn
-res://Prefabs/Entitys/Enemy/Bat/Bat.tscn
+res://Scenes/GUI/Skill/SkillSlot.tscn
 res://Prefabs/Entitys/Enemy/Golem/Golem.tscn
-res://Prefabs/Entitys/Enemy/Pebble/Pebble.tscn
-res://Prefabs/Entitys/Enemy/Rat/Rat.tscn
+res://Prefabs/Entitys/Enemy/Bat/Bat.tscn
 res://Components/Scripts/AttackComponent.cs
 res://Components/Scripts/EffectsComponent.cs
 res://Components/Scripts/HealthComponent.cs
@@ -47,3 +45,5 @@ res://Scenes/GUI/Skill/SkillSlot.cs
 res://Scenes/Main.cs
 res://Scenes/PauseGUI/PauseGUI.cs
 res://Scenes/Place/EnemysNode.cs
+res://Prefabs/Entitys/Enemy/Rat/Rat.tscn
+res://Prefabs/Entitys/Enemy/Pebble/Pebble.tscn

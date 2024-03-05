@@ -10,6 +10,27 @@ namespace Game.Components
         private HealthComponent healthComponent;
         private EffectsComponent effectsComponent;
 
+        private bool disabled = false;
+        public bool Disabled
+        {
+            get
+            {
+                return disabled;
+            }
+            set
+            {
+                disabled = value;
+                if (disabled)
+                {
+                    Monitorable = false;
+                }
+                else
+                {
+                    Monitorable = true;
+                }
+            }
+        }
+
         public override void _Ready()
         {
             Hit += OnHit;

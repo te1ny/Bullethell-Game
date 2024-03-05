@@ -6,17 +6,17 @@ namespace Game.Managers
 {
     public partial class Manager : Node2D
     {
-        public GameManager gameManager {get; set;}
+        public GameManager gameManager;
 
-        public CharacterBody2D entity {get; set;}
+        public CharacterBody2D entity;
 
-        public HealthComponent healthComponent {get; set;}
-        public MovementComponent movementComponent {get; set;}
-        public DamageIndicator damageIndicator {get; set;}
-        public HitboxComponent hitboxComponent {get; set;}
-        public CollisionShape2D collisionShape2D {get; set;}
-        public AnimatedSprite2D animatedSprite2D {get; set;}
-        public Node2D shadowComponent {get; set;}
+        public HealthComponent healthComponent;
+        public MovementComponent movementComponent;
+        public DamageIndicator damageIndicator;
+        public HitboxComponent hitboxComponent;
+        public CollisionShape2D collisionShape2D;
+        public AnimatedSprite2D animatedSprite2D;
+        public Node2D shadowComponent;
 
         public override void _Ready()
         {

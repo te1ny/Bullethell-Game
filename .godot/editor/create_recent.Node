@@ -1,4 +1,5 @@
 Label
+RichTextLabel
 TextureRect
 Panel
 AnimationPlayer
@@ -11,4 +12,3 @@ SplitContainer
 Container
 HBoxContainer
 VBoxContainer
-Button

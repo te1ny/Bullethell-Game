@@ -24,6 +24,8 @@ radius = 12.7
 collision_layer = 4
 collision_mask = 6
 motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 0
 script = ExtResource("1_h01xd")
 
 [node name="EnemyManager" parent="." instance=ExtResource("1_p3oq2")]

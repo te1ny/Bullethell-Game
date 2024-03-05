@@ -54,7 +54,7 @@ namespace Game.Managers
             else
             {
                 attackComponent.Monitoring = true;
-                if (attackTimer.IsStopped() && attackComponent.HasOverlappingAreas())
+                if (attackTimer.IsStopped() && attackComponent.HasOverlappingAreas() && !attackComponent.Disabled)
                 {
                     attackComponent.EmitSignal(AttackComponent.SignalName.Attack, attackResource, effectsResource);
                     attackTimer.Start();
@@ -66,17 +66,13 @@ namespace Game.Managers
         {
             SetPhysicsProcess(false);
 
-            effectsComponent.Visible = false;
-
-            shadowComponent.Visible = false;
-            
+            movementComponent.Disabled = true;
+            attackComponent.Disabled = true;
+            hitboxComponent.Disabled = true;
             collisionShape2D.Disabled = true;
 
-            hitboxComponent.Monitoring = false;
-            hitboxComponent.Monitorable = false;
-
-            attackComponent.Monitoring = false;
-            attackComponent.Monitorable = false;
+            effectsComponent.Visible = false;
+            shadowComponent.Visible = false;
 
             animatedSprite2D.Modulate = new Color(1,1,1,0);
             gameManager.CurrentExperience += costResource.Experience;

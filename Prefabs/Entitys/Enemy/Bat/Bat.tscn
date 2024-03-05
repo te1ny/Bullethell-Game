@@ -26,6 +26,8 @@ scale = Vector2(0.75, 0.75)
 collision_layer = 4
 collision_mask = 6
 motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 0
 script = ExtResource("1_t6jpt")
 
 [node name="EnemyManager" parent="." instance=ExtResource("1_s2bf6")]
@@ -34,7 +36,7 @@ costResource = ExtResource("4_j7cku")
 AttackDelay = 0.5
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_ocflv")]
-MaxHealth = 10.0
+MaxHealth = 15.0
 
 [node name="MovementComponent" parent="." instance=ExtResource("3_s1bot")]
 Speed = 75.0

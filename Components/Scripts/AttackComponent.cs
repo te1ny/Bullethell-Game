@@ -8,6 +8,27 @@ namespace Game.Components
     {
         [Signal] public delegate void AttackEventHandler(AttackResource attackResource, EffectsResource effectsResource);
 
+        private bool disabled = false;
+        public bool Disabled
+        {
+            get
+            {
+                return disabled;
+            }
+            set
+            {
+                disabled = value;
+                if (disabled)
+                {
+                    Monitoring = false;
+                }
+                else
+                {
+                    Monitoring = true;
+                }
+            }
+        }
+
         public override void _Ready()
         {
             Attack += OnAttack;

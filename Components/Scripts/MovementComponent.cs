@@ -8,6 +8,19 @@ namespace Game.Components
     {
         private const float speedLimit = 10000;
 
+        private bool disabled = false;
+        public bool Disabled
+        {
+            get
+            {
+                return disabled;
+            }
+            set
+            {
+                disabled = value;
+            }
+        }
+
         private Vector2 direction = Vector2.Zero;
         public Vector2 Direction
         {
@@ -48,10 +61,18 @@ namespace Game.Components
             }
         }
 
+        public void Decelerate(CharacterBody2D characterBody2D)
+        {
+            characterBody2D.Velocity = new Vector2(0f, 0f);
+        }
+
         public void Move(CharacterBody2D characterBody2D)
         {
-            characterBody2D.Velocity = Speed * Direction;
-            characterBody2D.MoveAndSlide();
+            if (!Disabled)
+            {
+                characterBody2D.Velocity = Speed * Direction;
+                characterBody2D.MoveAndSlide();
+            }
         }
 
         public void Move(Projectile projectile)
