@@ -73,19 +73,19 @@ namespace Game.Components
             {
                 if (effectsResource.Effects[0])
                 {
-                    freezingTicks = Godot.Mathf.Max((int)gameManager.SkillParameters[0]["Ticks"], freezingTicks);
+                    freezingTicks = Godot.Mathf.Max((int)gameManager.skillsTracker.GetData(0, Trackers.SkillsTracker.Properties.Ticks), freezingTicks);
                     enemyManager.SetPhysicsProcess(false);
                     animatedSprite2D.Stop();
                     movementComponent.Speed = 0f;
                 }
                 if (effectsResource.Effects[1])
                 {
-                    burningTicks = Godot.Mathf.Max((int)gameManager.SkillParameters[1]["Ticks"], burningTicks);
+                    burningTicks = Godot.Mathf.Max((int)gameManager.skillsTracker.GetData(1, Trackers.SkillsTracker.Properties.Ticks), burningTicks);
                 }
                 if (effectsResource.Effects[2])
                 {
-                    poisoningTicks = Godot.Mathf.Max((int)gameManager.SkillParameters[2]["Ticks"], poisoningTicks);
-                    movementComponent.Speed *= 1f - ((int)gameManager.SkillParameters[2]["Slowing"] / 100f);
+                    poisoningTicks = Godot.Mathf.Max((int)gameManager.skillsTracker.GetData(2, Trackers.SkillsTracker.Properties.Ticks), poisoningTicks);
+                    movementComponent.Speed *= 1f - ((int)gameManager.skillsTracker.GetData(2, Trackers.SkillsTracker.Properties.Slowing) / 100f);
                 }
 
                 if (freezingTicks > 0 && burningTicks > 0)
@@ -94,9 +94,9 @@ namespace Game.Components
                     burningTicks = 0;
                 }
 
-                freezingTimer = (float)gameManager.SkillParameters[0]["TickDuration"];
-                burningTimer = (float)gameManager.SkillParameters[1]["TickDuration"];
-                poisoningTimer = (float)gameManager.SkillParameters[2]["TickDuration"];
+                freezingTimer = (float)gameManager.skillsTracker.GetData(0, Trackers.SkillsTracker.Properties.TickDuration);
+                burningTimer = (float)gameManager.skillsTracker.GetData(1, Trackers.SkillsTracker.Properties.TickDuration);
+                poisoningTimer = (float)gameManager.skillsTracker.GetData(2, Trackers.SkillsTracker.Properties.TickDuration);
 
                 SetPhysicsProcess(true);
             }
@@ -163,19 +163,19 @@ namespace Game.Components
             if (freezingTimer == 0f && freezingTicks > 0)
             {
                 freezingTicks -= 1;
-                freezingTimer = (float)gameManager.SkillParameters[0]["TickDuration"];
+                freezingTimer = (float)gameManager.skillsTracker.GetData(0, Trackers.SkillsTracker.Properties.TickDuration);
             }
             if (burningTimer == 0f && burningTicks > 0)
             {
                 burningTicks -= 1;
-                burningTimer = (float)gameManager.SkillParameters[1]["TickDuration"];
-                healthComponent.Damage((float)gameManager.SkillParameters[1]["Damage"]);
+                burningTimer = (float)gameManager.skillsTracker.GetData(1, Trackers.SkillsTracker.Properties.TickDuration);
+                healthComponent.Damage((float)gameManager.skillsTracker.GetData(1, Trackers.SkillsTracker.Properties.Damage));
             }
             if (poisoningTimer == 0f && poisoningTicks > 0)
             {
                 poisoningTicks -= 1;
-                poisoningTimer = (float)gameManager.SkillParameters[2]["TickDuration"];
-                healthComponent.Damage((float)gameManager.SkillParameters[2]["Damage"]);
+                poisoningTimer = (float)gameManager.skillsTracker.GetData(2, Trackers.SkillsTracker.Properties.TickDuration);
+                healthComponent.Damage((float)gameManager.skillsTracker.GetData(2, Trackers.SkillsTracker.Properties.Damage));
             }
         }
     }

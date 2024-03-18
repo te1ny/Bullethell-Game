@@ -18,7 +18,7 @@ namespace Game.GUIS
 		public override void _Ready()
 		{
 			gameManager = GetNodeOrNull("/root/GameManager") as GameManager;
-			gameManager.ChangeSkillParameters += _ChangeSkillParameters;
+			gameManager.skillsTracker.SkillsDataChanged += _ChangeSkillParameters;
 
 			skillBox = GetNode("SkillBox") as TextureRect;
 			skillTexture = skillBox.GetNode("SkillTexture") as TextureRect;
@@ -26,11 +26,11 @@ namespace Game.GUIS
 			animationPlayer = GetNode("AnimationPlayer") as AnimationPlayer;
 		}
 
-		private void _ChangeSkillParameters(int skillID, bool LevelUp)
+		private void _ChangeSkillParameters(int _skillID, bool _LevelUp)
 		{
-			if (this.skillID == skillID)
+			if (this.skillID == _skillID)
 			{
-				levelLabel.Text = Convert.ToString((int)gameManager.SkillParameters[this.skillID]["Level"]);
+				levelLabel.Text = Convert.ToString((int)gameManager.skillsTracker.GetData(_skillID, Trackers.SkillsTracker.Properties.Level));
 			}
 		}
 
@@ -45,9 +45,9 @@ namespace Game.GUIS
 			return this.skillID;
 		}
 
-		public void SetTexture(int skillID)
+		public void SetTexture(int _skillID)
 		{
-			skillTexture.Texture = (Texture2D)gameManager.SkillParameters[skillID]["Texture"];
+			skillTexture.Texture = (Texture2D)gameManager.skillsTracker.GetData(_skillID, Trackers.SkillsTracker.Properties.Texture);
 		}
 
 		public void StartAnimation()
@@ -57,7 +57,7 @@ namespace Game.GUIS
 
 		public async void DeleteSkillSlot()
 		{
-			gameManager.ChangeSkillParameters -= _ChangeSkillParameters;
+			gameManager.skillsTracker.SkillsDataChanged -= _ChangeSkillParameters;
 			animationPlayer.PlayBackwards("start");
 			await ToSignal(animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
 			QueueFree();

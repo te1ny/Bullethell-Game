@@ -115,8 +115,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Управление:
 WASD - Ходьба
-LCM - Стрельба
-RCM - Автострельба
-I/O/P - Повысить уровень умений
-J/K/L - Понизить уровень умений"
+LCM - Стрельба"
 label_settings = SubResource("LabelSettings_4085s")

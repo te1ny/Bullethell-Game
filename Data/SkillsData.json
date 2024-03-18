@@ -1,0 +1,64 @@
+{
+    "0":
+    {
+        "Name": "Freezing",
+        "TextureName": "Freezing.png",
+        
+        "Level": 0,
+
+        "Chance": 0,
+        "BaseChance": 20,
+
+        "Damage": 0,
+        "BaseDamage": 0,
+
+        "Ticks": 0,
+        "BaseTicks": 1,
+        "TickDuration": 2,
+
+        "Slowing": 0,
+        "BaseSlowing": 0
+    },
+
+    "1":
+    {
+        "Name": "Burning",
+        "TextureName": "Burning.png",
+        
+        "Level": 0,
+
+        "Chance": 0,
+        "BaseChance": 20,
+
+        "Damage": 0,
+        "BaseDamage": 1,
+
+        "Ticks": 0,
+        "BaseTicks": 2,
+        "TickDuration": 1,
+
+        "Slowing": 0,
+        "BaseSlowing": 0
+    },
+
+    "2":
+    {
+        "Name": "Poisoning",
+        "TextureName": "Poisoning.png",
+        
+        "Level": 0,
+
+        "Chance": 0,
+        "BaseChance": 20,
+
+        "Damage": 0,
+        "BaseDamage": 0.5,
+
+        "Ticks": 0,
+        "BaseTicks": 2,
+        "TickDuration": 0.5,
+
+        "Slowing": 0,
+        "BaseSlowing": 7.5
+    }
+}

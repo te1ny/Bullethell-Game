@@ -102,15 +102,15 @@ namespace Game.Weapons
             {
                 EffectsResource effectsResource = new EffectsResource();
 
-                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters[0]["Chance"] && (int)gameManager.SkillParameters[0]["Level"] > 0)
+                if (generator.RandiRange(1, 100) <= (int)gameManager.skillsTracker.GetData(0, Trackers.SkillsTracker.Properties.Chance) && (int)gameManager.skillsTracker.GetData(0, Trackers.SkillsTracker.Properties.Level) > 0)
                 {
                     effectsResource.Effects[0] = true;
                 }
-                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters[1]["Chance"] && (int)gameManager.SkillParameters[1]["Level"] > 0)
+                if (generator.RandiRange(1, 100) <= (int)gameManager.skillsTracker.GetData(1, Trackers.SkillsTracker.Properties.Chance) && (int)gameManager.skillsTracker.GetData(1, Trackers.SkillsTracker.Properties.Level) > 0)
                 {
                     effectsResource.Effects[1] = true;
                 }
-                if (generator.RandiRange(1, 100) <= (int)gameManager.SkillParameters[2]["Chance"] && (int)gameManager.SkillParameters[2]["Level"] > 0)
+                if (generator.RandiRange(1, 100) <= (int)gameManager.skillsTracker.GetData(2, Trackers.SkillsTracker.Properties.Chance) && (int)gameManager.skillsTracker.GetData(2, Trackers.SkillsTracker.Properties.Level) > 0)
                 {
                     effectsResource.Effects[2] = true;
                 }

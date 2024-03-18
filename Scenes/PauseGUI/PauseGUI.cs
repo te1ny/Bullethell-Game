@@ -28,9 +28,9 @@ namespace Game.GUIS
 			exitButton.Pressed += _ExitPressed;
         }
 
-		private void _PlayPressed()
+        private void _PlayPressed()
 		{
-			gameManager.CurrentMode = GameManager.Mode.Play;
+			gameManager.modeTracker.SetMode(Trackers.ModeTracker.Mode.Play);
 		}
 		private void _SettingsPressed()
 		{

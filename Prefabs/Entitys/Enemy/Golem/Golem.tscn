@@ -46,6 +46,7 @@ position = Vector2(0, -12)
 [node name="HitboxComponent" parent="." instance=ExtResource("6_bimvh")]
 collision_layer = 64
 collision_mask = 0
+input_pickable = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
@@ -54,6 +55,7 @@ shape = SubResource("CircleShape2D_8n8f8")
 [node name="AttackComponent" parent="." instance=ExtResource("7_l2cuy")]
 collision_layer = 0
 collision_mask = 16
+input_pickable = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]

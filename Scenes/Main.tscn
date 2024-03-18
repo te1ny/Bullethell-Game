@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://6p1m0uaqmdke"]
+[gd_scene load_steps=6 format=3 uid="uid://6p1m0uaqmdke"]
 
 [ext_resource type="PackedScene" uid="uid://c3m43sfnfqrb3" path="res://Scenes/Place/Place.tscn" id="1_nnmh0"]
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_w3lix"]
 [ext_resource type="PackedScene" uid="uid://crf784jx4l8nf" path="res://Scenes/GUI/GUI.tscn" id="2_kh73h"]
 [ext_resource type="PackedScene" uid="uid://dund4qmrwiq4t" path="res://Scenes/PauseGUI/PauseGUI.tscn" id="4_ngijp"]
+[ext_resource type="PackedScene" uid="uid://bmub07dus8xse" path="res://Scenes/SelectionGUI/SelectionGUI.tscn" id="5_xfx0w"]
 
 [node name="Main" type="Node"]
+process_mode = 3
 script = ExtResource("1_w3lix")
 
 [node name="Place" parent="." instance=ExtResource("1_nnmh0")]
@@ -17,5 +19,9 @@ process_mode = 1
 process_mode = 1
 
 [node name="PauseGUI" parent="GUILayer" instance=ExtResource("4_ngijp")]
+process_mode = 2
+visible = false
+
+[node name="SelectionGUI" parent="GUILayer" instance=ExtResource("5_xfx0w")]
 process_mode = 2
 visible = false

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_ixdtq")
-Money = 1
-Experience = 1
+Money = 0
+Experience = 5

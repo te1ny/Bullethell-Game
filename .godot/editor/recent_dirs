@@ -1,3 +1,6 @@
+res://Scenes/SelectionGUI/SkillSelector
+res://Scenes/SelectionGUI
+res://Test
 D:/Work/Exports/prototype v1.1
 res://Scenes/GUI/Skill
 res://Scenes/GUI
@@ -14,9 +17,6 @@ res://Prefabs/Entitys/Enemy/Pebble
 res://Prefabs/Entitys/Enemy/Golem
 res://Prefabs/Entitys/Enemy/Rat
 res://Prefabs/Entitys/Enemy/Bat
-res://Trash
 res://Scenes/Place
 res://Scenes
 res://Managers/Scripts
-res://Indicators/DamageIndicator
-res://Indicators

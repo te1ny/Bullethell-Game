@@ -1,0 +1,96 @@
+[gd_scene load_steps=17 format=3 uid="uid://8tpqx8shny3x"]
+
+[ext_resource type="PackedScene" uid="uid://b0qwbbhnea4yj" path="res://Managers/EnemyManager.tscn" id="1_s2bf6"]
+[ext_resource type="Script" path="res://Test/Bat.gd" id="1_tl7g0"]
+[ext_resource type="PackedScene" uid="uid://d0fks8mk80p2g" path="res://Indicators/DamageIndicator/DamageIndicator.tscn" id="2_h23nt"]
+[ext_resource type="PackedScene" uid="uid://bpr2juygvq8w2" path="res://Components/HealthComponent.tscn" id="2_ocflv"]
+[ext_resource type="Resource" uid="uid://dhvybnho0en1q" path="res://Prefabs/Entitys/Enemy/Bat/BatAttackResource.tres" id="3_8dkvd"]
+[ext_resource type="PackedScene" uid="uid://c7h2872phlqkg" path="res://Components/MovementComponent.tscn" id="3_s1bot"]
+[ext_resource type="Resource" uid="uid://do0h1ytpax4al" path="res://Prefabs/Entitys/Enemy/Bat/BatCostResource.tres" id="4_j7cku"]
+[ext_resource type="PackedScene" uid="uid://dscrcoh5selfx" path="res://Components/HitboxComponent.tscn" id="4_qvfdu"]
+[ext_resource type="PackedScene" uid="uid://cv0iy2niulgwh" path="res://Components/AttackComponent.tscn" id="5_g011d"]
+[ext_resource type="SpriteFrames" uid="uid://x4vgd0i6jfuf" path="res://Prefabs/Entitys/Enemy/Bat/BatSpriteFrames.tres" id="10_wbfvx"]
+[ext_resource type="PackedScene" uid="uid://cxiwnsbq4cruq" path="res://Components/ShadowComponent.tscn" id="11_lsvo2"]
+[ext_resource type="PackedScene" uid="uid://dbbdfnvgdw8yr" path="res://Components/EffectsComponent.tscn" id="12_d2vuc"]
+[ext_resource type="SpriteFrames" uid="uid://bi1ed00o6t6x8" path="res://Prefabs/Effects/BurningSpriteFrames.tres" id="13_6cv0l"]
+[ext_resource type="Texture2D" uid="uid://bg38on2mn10lp" path="res://Resources/Textures/Effects/Ice.png" id="14_10q1i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a18c8"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3msij"]
+radius = 10.198
+
+[node name="Bat" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 6
+motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 0
+script = ExtResource("1_tl7g0")
+
+[node name="EnemyManager" parent="." instance=ExtResource("1_s2bf6")]
+attackResource = ExtResource("3_8dkvd")
+costResource = ExtResource("4_j7cku")
+AttackDelay = 0.5
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_ocflv")]
+MaxHealth = 15.0
+
+[node name="MovementComponent" parent="." instance=ExtResource("3_s1bot")]
+Speed = 75.0
+
+[node name="DamageIndicator" parent="." instance=ExtResource("2_h23nt")]
+position = Vector2(0, -12)
+scale = Vector2(1.2, 1.2)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_qvfdu")]
+collision_layer = 64
+collision_mask = 0
+input_pickable = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_a18c8")
+
+[node name="AttackComponent" parent="." instance=ExtResource("5_g011d")]
+collision_layer = 0
+collision_mask = 16
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+shape = SubResource("CircleShape2D_3msij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a18c8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = ExtResource("10_wbfvx")
+animation = &"Stalk"
+frame_progress = 0.41435
+
+[node name="ShadowComponent" parent="." instance=ExtResource("11_lsvo2")]
+position = Vector2(0, 14.6667)
+scale = Vector2(0.03, 0.03)
+
+[node name="EffectsComponent" parent="." instance=ExtResource("12_d2vuc")]
+
+[node name="AnimatedEffects" type="AnimatedSprite2D" parent="EffectsComponent"]
+visible = false
+modulate = Color(1, 1, 1, 0.858824)
+z_index = 1
+position = Vector2(1.33333, -1.33333)
+scale = Vector2(0.15, 0.15)
+sprite_frames = ExtResource("13_6cv0l")
+animation = &"Burning"
+autoplay = "default"
+frame_progress = 0.0665937
+
+[node name="StaticEffect" type="Sprite2D" parent="EffectsComponent"]
+visible = false
+z_index = 2
+scale = Vector2(0.545, 0.545)
+texture = ExtResource("14_10q1i")

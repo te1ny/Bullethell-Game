@@ -1,5 +1,4 @@
 using Game.Resources;
-using Game.Objects.Entitys;
 using Godot;
 using Game.Components;
 
@@ -46,7 +45,7 @@ namespace Game.Managers
         {
             movementComponent.Direction = directionToPlayer;
             movementComponent.Move(entity);
-
+            
             if (directionToPlayer.X * directionToPlayer.X + directionToPlayer.Y * directionToPlayer.X > 400)
             {
                 attackComponent.Monitoring = false;
@@ -60,6 +59,7 @@ namespace Game.Managers
                     attackTimer.Start();
                 }
             }
+
         }
 
         private async void OnDied()
@@ -75,8 +75,9 @@ namespace Game.Managers
             shadowComponent.Visible = false;
 
             animatedSprite2D.Modulate = new Color(1,1,1,0);
-            gameManager.CurrentExperience += costResource.Experience;
-            gameManager.CurrentMoney += costResource.Money;
+
+            gameManager.statsTracker.AddMoney(costResource.Money);
+            gameManager.statsTracker.AddExperience(costResource.Experience);
 
             await ToSignal(damageIndicator.animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
             entity.QueueFree();

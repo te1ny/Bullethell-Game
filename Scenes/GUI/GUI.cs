@@ -35,7 +35,7 @@ namespace Game.GUIS
 		public override void _Ready()
 		{
 			gameManager = GetNodeOrNull("/root/GameManager") as GameManager;
-			gameManager.ChangeSkillParameters += _ChangeSkillParameters;
+			gameManager.skillsTracker.SkillsDataChanged += _ChangeSkillParameters;
 
 			skillReference = GD.Load<PackedScene>("res://Scenes/GUI/Skill/SkillSlot.tscn");
 			skillBar = aspectRatioContainer.GetNode("SkillBar") as VFlowContainer;
@@ -55,17 +55,17 @@ namespace Game.GUIS
 			timeLabel.Text = minutesS + ":" + secondsS;
 		}
 
-		private void _ChangeSkillParameters(int skillID, bool LevelUp)
+		private void _ChangeSkillParameters(int _skillID, bool _levelUp)
 		{
-			if ((int)gameManager.SkillParameters[skillID]["Level"] == 0 && !LevelUp)
+			if ((int)gameManager.skillsTracker.GetData(_skillID, Trackers.SkillsTracker.Properties.Level) == 0 && !_levelUp)
 			{
-				DeleteSkillSlot(skillID);
+				DeleteSkillSlot(_skillID);
 				return;
 			}
 
-			if ((int)gameManager.SkillParameters[skillID]["Level"] == 1 && LevelUp)
+			if ((int)gameManager.skillsTracker.GetData(_skillID, Trackers.SkillsTracker.Properties.Level) == 1 && _levelUp)
 			{
-				AddSkillSlot(skillID);
+				AddSkillSlot(_skillID);
 				return;
 			}
 		}

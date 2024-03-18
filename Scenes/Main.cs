@@ -1,4 +1,5 @@
 using Game.Managers;
+using Game.Trackers;
 using Godot;
 using GodotUtilities;
 
@@ -14,6 +15,7 @@ namespace Game
         [Node] private CanvasLayer GUILayer;
         private Control GUI;
         private Control PauseGUI;
+        private Control SelectionGUI;
 
         public override void _Notification(int what)
 		{
@@ -26,27 +28,47 @@ namespace Game
         public override void _Ready()
         {
             gameManager = GetNodeOrNull("/root/GameManager") as GameManager;
-            gameManager.ChangeMode += _ChangeMode;
+            gameManager.modeTracker.ModeChanged += _ChangeMode;
 
             GUI = GUILayer.GetNode("GUI") as Control;
             PauseGUI = GUILayer.GetNode("PauseGUI") as Control;
+            SelectionGUI = GUILayer.GetNode("SelectionGUI") as Control;
         }
 
-        private void _ChangeMode(int what)
+        private void _ChangeMode()
         {
-            if (what == (int) GameManager.Mode.Menu)
-            {   
-                GUI.Hide();
-                PauseGUI.Show();
-                GetTree().Paused = true;
-            }
-            else if (what == (int) GameManager.Mode.Play)
+            switch (gameManager.modeTracker.GetMode())
             {
-                GUI.Show();
-                PauseGUI.Hide();
-                Place.SetPhysicsProcess(true);
-                GetTree().Paused = false;
-            }
+                case ModeTracker.Mode.None:
+                    break;
+
+                case ModeTracker.Mode.Menu:
+                    break;
+
+                case ModeTracker.Mode.Play:
+                    GUI.Show();
+                    PauseGUI.Hide();
+                    SelectionGUI.Hide();
+                    
+                    GetTree().Paused = false;
+                    break;
+
+                case ModeTracker.Mode.Pause:
+                    PauseGUI.Show();
+                    GUI.Hide();
+                    SelectionGUI.Hide();
+
+                    GetTree().Paused = true;
+                    break;
+
+                case ModeTracker.Mode.Selection:
+                    SelectionGUI.Show();
+                    GUI.Hide();
+                    PauseGUI.Hide();
+
+                    GetTree().Paused = true;
+                    break;
+            };
         }
     }
 }

@@ -3,33 +3,44 @@
 [ext_resource type="Script" path="res://Prefabs/Projectiles/Arrow/Arrow.cs" id="1_lpm23"]
 [ext_resource type="PackedScene" uid="uid://cv0iy2niulgwh" path="res://Components/AttackComponent.tscn" id="2_onyhk"]
 [ext_resource type="PackedScene" uid="uid://c7h2872phlqkg" path="res://Components/MovementComponent.tscn" id="2_woq2w"]
+[ext_resource type="PackedScene" uid="uid://csqyieinsu4s" path="res://Prefabs/Particles/BurningParticle.tscn" id="3_2eajv"]
+[ext_resource type="PackedScene" uid="uid://bmolh2lwofpn4" path="res://Prefabs/Particles/FreezingParticle.tscn" id="4_bp7a8"]
 [ext_resource type="Texture2D" uid="uid://cn3vklkoc2c0c" path="res://Resources/Textures/Projectiles/Arrow.png" id="4_mthy0"]
-[ext_resource type="Shader" path="res://Shaders/ColorRemover.gdshader" id="5_gx0kj"]
-[ext_resource type="SpriteFrames" uid="uid://xa5s0g35dnpc" path="res://Prefabs/Projectiles/Arrow/EffectsSpriteFrames.tres" id="6_xf248"]
+[ext_resource type="PackedScene" uid="uid://dc54j357a3k3l" path="res://Prefabs/Particles/PoisoningParticle.tscn" id="5_nig4v"]
+[ext_resource type="PackedScene" uid="uid://bktd46vlh58t6" path="res://Prefabs/Particles/BurningPoisoning.tscn" id="6_p6rtf"]
+[ext_resource type="PackedScene" uid="uid://cxhh1paspnhx1" path="res://Prefabs/Particles/FreezingPoisoning.tscn" id="7_xy1o1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wnvs"]
 size = Vector2(15, 3)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6r07"]
-shader = ExtResource("5_gx0kj")
-shader_parameter/color1 = Color(0.133333, 0.12549, 0.203922, 1)
-shader_parameter/precision = 0.05
-
-[sub_resource type="Gradient" id="Gradient_gdghb"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.75, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.478431, 0.478431, 0.478431, 0, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnujl"]
-gradient = SubResource("Gradient_gdghb")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 1)
 
 [node name="Arrow" type="Node2D"]
 script = ExtResource("1_lpm23")
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_woq2w")]
+
+[node name="Particles" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(4, 0)
+
+[node name="BurningParticle" parent="Particles" instance=ExtResource("3_2eajv")]
+visible = false
+emitting = false
+
+[node name="FreezingParticle" parent="Particles" instance=ExtResource("4_bp7a8")]
+visible = false
+emitting = false
+
+[node name="PoisoningParticle" parent="Particles" instance=ExtResource("5_nig4v")]
+visible = false
+emitting = false
+
+[node name="BurningPoisoningParticle" parent="Particles" instance=ExtResource("6_p6rtf")]
+visible = false
+emitting = false
+
+[node name="FreezingPoisoningParticle" parent="Particles" instance=ExtResource("7_xy1o1")]
+visible = false
+emitting = false
 
 [node name="AttackComponent" parent="." instance=ExtResource("2_onyhk")]
 collision_layer = 8
@@ -40,18 +51,3 @@ shape = SubResource("RectangleShape2D_0wnvs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_mthy0")
-
-[node name="Effects" type="AnimatedSprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_v6r07")
-position = Vector2(5.33333, -0.666667)
-scale = Vector2(0.155, 0.155)
-sprite_frames = ExtResource("6_xf248")
-animation = &"Poisoning"
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(5, 0)
-scale = Vector2(0.390625, 0.390625)
-color = Color(0.545098, 0.792157, 0.223529, 1)
-texture = SubResource("GradientTexture2D_cnujl")

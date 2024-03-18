@@ -79,5 +79,10 @@ namespace Game.Components
         {
             projectile.GlobalPosition += Speed * Direction * Convert.ToSingle(GetPhysicsProcessDeltaTime());
         }
+
+        public void Move(Node2D node)
+        {
+            node.GlobalPosition += Speed * Direction * Convert.ToSingle(GetPhysicsProcessDeltaTime());
+        } 
     }
 }

@@ -19,8 +19,8 @@ public partial class EnemysNode : Node2D
 
 	private GameManager gameManager;
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		randomNumberGenerator = new RandomNumberGenerator();
 
 		player = GetParent().GetNodeOrNull("Player") as CharacterBody2D;
@@ -28,7 +28,7 @@ public partial class EnemysNode : Node2D
 		gameManager = GetNodeOrNull("/root/GameManager") as GameManager;
 
 		timer = new Timer();
-        timer.WaitTime = SpawnDelay;
+		timer.WaitTime = SpawnDelay;
 		timer.Autostart = true;
 		timer.OneShot = true;
 		AddChild(timer);
@@ -48,11 +48,11 @@ public partial class EnemysNode : Node2D
 			new Vector2(400, 0),
 			new Vector2(-400, 0)
 		};
-    }
+	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-        gameManager.EnemysCount = GetChildCount() - 1;
+	public override void _PhysicsProcess(double delta)
+	{
+		//gameManager.EnemysCount = GetChildCount() - 1;
 		if (Input.IsActionJustPressed("q"))
 		{
 			for (int i = 0; i < GetChildCount(); i++)
@@ -64,9 +64,9 @@ public partial class EnemysNode : Node2D
 			}
 		}
 		
-    }
+	}
 
-    private void OnTimerTimeout()
+	private void OnTimerTimeout()
 	{
 		if (Enable)
 		{

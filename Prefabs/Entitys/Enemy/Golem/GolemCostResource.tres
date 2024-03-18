@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_46jit")
 Money = 10
-Experience = 10
+Experience = 20

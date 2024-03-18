@@ -96,6 +96,7 @@ z_index = 1
 modulate = Color(0.9, 0.9, 0.9, 1)
 z_index = 1
 y_sort_enabled = true
+position = Vector2(70, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -104,4 +105,4 @@ z_index = 1
 y_sort_enabled = true
 script = ExtResource("3_t3p15")
 SpawnDelay = 3.0
-Enemys = Array[PackedScene]([ExtResource("2_8pwrk"), ExtResource("5_ixett"), ExtResource("6_pcu53"), ExtResource("7_2k50k")])
+Enemys = Array[PackedScene]([ExtResource("2_8pwrk"), ExtResource("7_2k50k"), ExtResource("6_pcu53"), ExtResource("5_ixett")])

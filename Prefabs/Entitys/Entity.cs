@@ -24,10 +24,10 @@ namespace Game.Objects.Entitys
             {
                 animatedSprite2D.FlipH = false;
             }
-            if (movementComponent.Direction.X < 0 && animatedSprite2D.FlipH == false)
+            else if (movementComponent.Direction.X < 0 && animatedSprite2D.FlipH == false)
             {
                 animatedSprite2D.FlipH = true;
-            }
+            } 
         }
 
         public void LookToMouse()
